@@ -4,7 +4,10 @@ import shutil
 from flask import Flask, flash, request, redirect, url_for
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
+from predict import FOOODModel
 
+
+model = FOOODModel()
 
 app = Flask(__name__)
 CORS(app)
@@ -39,19 +42,21 @@ def evaluate():
 
     temp_dir = tempfile.mkdtemp()
 
+    evaluation = {}
+
     try:
         filename = secure_filename(file.filename)
         filepath = os.path.join(temp_dir, filename)
         
         file.save(filepath)
         
-        # teach the machines
+        evaluation = model.evaluate_image(filepath)
 
     finally:
         # os.rmdir(temp_dir)
         shutil.rmtree(temp_dir)
 
-    return 'File uploaded successfully'
+    return evaluation
 
 if __name__ == "__main__":
     app.run(debug=True, port='5000')
