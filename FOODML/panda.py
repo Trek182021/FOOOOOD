@@ -16,7 +16,7 @@ df.rename(columns=column_names_mapping, inplace=True)
 df = df.dropna()
 
 def search_nutrients(food_name: str) :
-    results = df[df['description'].str.contains('rice', case=False)]
+    results = df[df['description'].str.contains(food_name, case=False)]
 
     nutrients = results.to_dict(orient='records')
 
@@ -24,9 +24,14 @@ def search_nutrients(food_name: str) :
 
     for nutrient in nutrients:
         description = nutrient.pop('description')
+        if not nutrient: continue
+        if not nutrient['calories']: continue
+        if not nutrient['carbohydrates']: continue
+        if not nutrient['protein']: continue
+
         food = {
             'description': description,
             'NutritionFacts': nutrient
         }
-    foods.append(food)
+        foods.append(food)
     return foods

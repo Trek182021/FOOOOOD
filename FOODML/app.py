@@ -10,6 +10,7 @@ from predict import FOOODModel
 model = FOOODModel()
 
 app = Flask(__name__)
+app.secret_key = "your_secret_key_here"
 CORS(app)
 
 UPLOAD_FOLDER = '/path/to/the/uploads'

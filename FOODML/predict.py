@@ -6,6 +6,7 @@ import uuid
 import os
 import pandas as pd
 from panda import search_nutrients
+from flask import url_for
 
 df = pd.read_csv('nutrients.csv')
 
@@ -23,6 +24,7 @@ class FoodResult(TypedDict):
     name: str
     imageUrl: str
     instances: list[Food]
+    quantity: int
 
 
 class FOOODModel:
@@ -70,15 +72,17 @@ class FOOODModel:
 
             file_name = f"{str(uuid.uuid4()) }.png"
 
-            os.makedirs(os.path.join("../files"), exist_ok=True)
-            cv2.imwrite(os.path.join("../files", file_name), masked_image)
+            os.makedirs(os.path.join("static"), exist_ok=True)
+            cv2.imwrite(os.path.join("static", file_name), masked_image)
 
             food_id = int(clss)
             name = result.names[food_id]
 
             evaluation: FoodResult = {
+                'quantity': 1,
                 'name': name,
-                'imageUrl': file_name,
+                # 'imageUrl': url_for('static', filename=file_name),
+                'imageUrl': f'http://127.0.0.1:5000/static/{file_name}',
                 'instances': search_nutrients(name) 
             }
             evaluations.append(evaluation)
