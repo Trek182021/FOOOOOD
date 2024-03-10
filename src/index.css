@@ -83,7 +83,7 @@
   .custom-select {
     @apply font-nutrition;
 
-    div, span, button, label {
+    div, span, button, label, .group-test {
       @apply font-nutrition;
     }
   }
