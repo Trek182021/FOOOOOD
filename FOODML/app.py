@@ -3,6 +3,7 @@ import tempfile
 from flask import Flask, flash, request, redirect, url_for
 from werkzeug.utils import secure_filename
 
+
 app = Flask(__name__)
 UPLOAD_FOLDER = '/path/to/the/uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -48,4 +49,4 @@ def evaluate():
     return 'File uploaded successfully'
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port='5000')

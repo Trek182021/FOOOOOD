@@ -1,4 +1,5 @@
 FoodSeg103/
 runs/
 yolov5/
+nano10epoch/
 *.pt
