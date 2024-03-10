@@ -31,6 +31,8 @@ const CarouselSelect = ({
             const matchingFood = currentData.instances.find(
                 (food) => food.description === selectedFood
             );
+            if (!(matchingFood) || !matchingFood.NutritionFacts) return
+
             const { calories, carbohydrates, protein } =
                 matchingFood!.NutritionFacts;
 

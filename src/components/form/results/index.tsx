@@ -85,6 +85,7 @@ const ResultsPage = ({ prompt }: ResultsPageProps) => {
         }
         const form = new FormData();
         form.append("file", prompt.file!);
+        form.append("tableware", prompt.tableware)
 
         try {
             const response = await fetch(`${baseURL}/evaluate`, {
