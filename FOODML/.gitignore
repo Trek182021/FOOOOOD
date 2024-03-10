@@ -1,0 +1,4 @@
+FoodSeg103/
+runs/
+yolov5/
+*.pt
