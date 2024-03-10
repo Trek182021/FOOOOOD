@@ -6,7 +6,6 @@ import { Prompt } from '@/types'
 import ReviewPage from './review'
 import ResultsPage from './results'
 
-const baseURL = 'http://127.0.0.1:5000'
 
 
 const CalorieTrackerPage = () => {
@@ -34,24 +33,11 @@ const CalorieTrackerPage = () => {
   // function updateForm()
 
   async function handleSubmit(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    e.preventDefault();
+
     if (!prompt.file) {
       console.log("No File Uploaded")
       return
-    }
-    e.preventDefault();
-    console.log("Submit form")
-
-    const form = new FormData();
-    form.append('file', prompt.file!)
-
-    try {
-      await fetch(`${baseURL}/evaluate`, {
-        method: 'POST',
-        body: form
-      })
-
-    } catch (err) {
-      console.log(err)
     }
   }
 
@@ -68,6 +54,10 @@ const CalorieTrackerPage = () => {
     {
       title: "Review",
       element: <ReviewPage prompt={prompt} goBack={goBack} handleSubmit={handleSubmit}/>
+    },
+    {
+      title: "Results",
+      element: <ResultsPage prompt={prompt} />
     }
   ]
   return (
@@ -75,7 +65,7 @@ const CalorieTrackerPage = () => {
         <Navbar isBlack/>
         <section className="flex flex-col items-center">
            {/* {forms[counter].element} */}
-           <ResultsPage/>
+           <ResultsPage prompt={prompt}/>
         </section>
 
     </>

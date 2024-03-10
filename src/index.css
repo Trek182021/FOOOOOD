@@ -79,4 +79,12 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  .custom-select {
+    @apply font-nutrition;
+
+    div, span, button, label {
+      @apply font-nutrition;
+    }
+  }
 }

@@ -16,7 +16,11 @@ module.exports = {
         "2xl": "1400px",
       },
     },
+    fontFamily: {
+      'nutrition': 'Helvetica'
+    },
     extend: {
+      
       colors: {
         'food': "#C37B2C",
         border: "hsl(var(--border))",
