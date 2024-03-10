@@ -17,10 +17,11 @@ const UploadPage = ({ prompt, goNext, goBack, setPrompt }: UploadPageProps) => {
     const [alert, setAlert] = useState<boolean>(false);
 
     function handleStep(status: "back" | "next") {
-        
+
         setPrompt((prevPrompt) => ({
             tableware: prevPrompt?.tableware || "",
-            file: newFile!
+            file: newFile!,
+            fileUrl: newFile ? URL.createObjectURL(newFile!) : ""
         }));
         if (status == "back") {
             goBack();

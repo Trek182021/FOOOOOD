@@ -3,3 +3,4 @@ runs/
 yolov5/
 nano10epoch/
 *.pt
+__pycache__/

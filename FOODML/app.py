@@ -1,10 +1,14 @@
 import os
 import tempfile
+import shutil
 from flask import Flask, flash, request, redirect, url_for
+from flask_cors import CORS
 from werkzeug.utils import secure_filename
 
 
 app = Flask(__name__)
+CORS(app)
+
 UPLOAD_FOLDER = '/path/to/the/uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -17,12 +21,12 @@ def allowed_file(filename: str):
 def hello_world():
     return "<p>Hello, World!</p>"
 
-@app.route("evaluate", methods=['POST'])
+@app.route("/evaluate", methods=['POST'])
 def evaluate():
-    if 'file' not in request:
+    if 'file' not in request.files:
         flash('not file found')
         return
-    file = request.files['image']
+    file = request.files['file']
     if file.filename == '':
         flash('No selected file')
         return redirect(request.url)
@@ -44,7 +48,8 @@ def evaluate():
         # teach the machines
 
     finally:
-        os.rmdir(temp_dir)
+        # os.rmdir(temp_dir)
+        shutil.rmtree(temp_dir)
 
     return 'File uploaded successfully'
 

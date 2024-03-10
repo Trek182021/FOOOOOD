@@ -42,7 +42,8 @@ export function TablewareForm({ prompt, goNext, setPrompt }: TablewareProps) {
       console.log(values);
       setPrompt((prevPrompt) => ({
         tableware: values.tableware,
-        file: prevPrompt?.file || null
+        file: prevPrompt?.file || null,
+        fileUrl: prevPrompt?.fileUrl || ""
       }));
       goNext();
     }
