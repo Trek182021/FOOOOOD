@@ -59,15 +59,39 @@ const ResultsCarousel = ({ data }: ResultsCarouselProps) => {
                         <CarouselItem key={index}>
                             <div className="p-1">
                                 <Card>
-                                    <CardContent className="flex flex-col aspect-square items-center justify-between p-6">
-                                        <span className="text-4xl font-semibold font-nutrition">
-                                            {food.name}
+                                    <CardContent className="flex flex-col aspect-square items-center justify-center p-6">
+                                        <span className="text-4xl font-semibold">
+                                            {index + 1}
                                         </span>
                                         {data && (
-                                            <img
-                                                src={`${food.imageUrl}`}
-                                                alt="image"
-                                            />
+                                            <div
+                                                style={{
+                                                    position: "relative",
+                                                    height: "100%",
+                                                    width: "100%",
+                                                }}
+                                            >
+                                                {/* Bottom image */}
+                                                <img
+                                                    src={food.backgroundUrl}
+                                                    style={{
+                                                        position: "absolute",
+                                                        top: 0,
+                                                        left: 0,
+                                                        zIndex: 0,
+                                                    }}
+                                                />
+                                                {/* Top image with transparency */}
+                                                <img
+                                                    src={food.imageUrl}
+                                                    style={{
+                                                        position: "absolute",
+                                                        top: 0,
+                                                        left: 0,
+                                                        zIndex: 1,
+                                                    }}
+                                                />
+                                            </div>
                                         )}
                                     </CardContent>
                                 </Card>

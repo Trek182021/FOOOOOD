@@ -36,11 +36,17 @@ def evaluate():
         return redirect(request.url)
     if not file:
         flash('File not found')
-        return
+        return 'something went wrong'
     if not allowed_file(file.filename):
         flash('Not a vallid file type') 
-        return
+        return 'something went wrong'
 
+    if not 'tableware' in request.form:
+        flash('no tableware')
+        return 'something wen wrong'
+    
+    tableware = request.form['tableware']
+    
     temp_dir = tempfile.mkdtemp()
 
     evaluation = {}
@@ -51,7 +57,7 @@ def evaluate():
         
         file.save(filepath)
         
-        evaluation = model.evaluate_image(filepath)
+        evaluation = model.evaluate_image(filepath, tableware)
 
     finally:
         # os.rmdir(temp_dir)
