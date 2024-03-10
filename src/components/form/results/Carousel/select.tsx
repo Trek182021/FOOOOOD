@@ -73,6 +73,7 @@ const CarouselSelect = ({
                 <div>{`Protein: ${_protein}`}</div>
                 <div>{`Carbohydrates: ${_carbohydrates}`}</div>
             </div>
+            <div>Estimated Calories: ${!_calories ? "Calories Not Found": _calories * currentData.quantity}</div>
         </div>
     );
 };

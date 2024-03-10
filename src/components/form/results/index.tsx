@@ -8,72 +8,72 @@ type ResultsPageProps = {
     prompt: Prompt;
 };
 
-const sampleData: FoodResult[] = [
-    {
-        name: "BUTTER",
-        imageUrl:
-            "https://media.istockphoto.com/id/177834117/photo/butter-isolated-on-white.jpg?s=612x612&w=0&k=20&c=wKXNDSvB-tzfT9RPdmKsH2JAGpBv7OISdUmGdegupxg=",
-        instances: [
-            {
-                description: "BUTTER,WITH SALT",
-                NutritionFacts: {
-                    calories: 717,
-                    protein: 0.85,
-                    carbohydrates: 0.06,
-                },
-            },
-            {
-                description: "BUTTER,WHIPPED,WITH SALT",
-                NutritionFacts: {
-                    calories: 717,
-                    protein: 0.85,
-                    carbohydrates: 0.06,
-                },
-            },
-            {
-                description: "BUTTER OIL,ANHYDROUS",
-                NutritionFacts: {
-                    calories: 876,
-                    protein: 0.28,
-                    carbohydrates: 0,
-                },
-            },
-        ],
-        quantity: 1,
-    },
-    {
-        name: "CHEESE",
-        imageUrl:
-            "https://t3.ftcdn.net/jpg/05/66/02/98/360_F_566029808_X7praimuCQt0MsLCmw5d65Pp5KqmTS8e.jpg",
-        instances: [
-            {
-                description: "CHEESE,WITH SALT",
-                NutritionFacts: {
-                    calories: 717,
-                    protein: 0.85,
-                    carbohydrates: 0.06,
-                },
-            },
-            {
-                description: "CHEESE,WHIPPED,WITH SALT",
-                NutritionFacts: {
-                    calories: 717,
-                    protein: 0.85,
-                    carbohydrates: 0.06,
-                },
-            },
-            {
-                description: "CHEESE OIL,ANHYDROUS",
-                NutritionFacts: {
-                    calories: 876,
-                    protein: 0.28,
-                    carbohydrates: 0,
-                },
-            },
-        ],
-        quantity: 1,
-    },
-];
+// const sampleData: FoodResult[] = [
+//     {
+//         name: "BUTTER",
+//         imageUrl:
+//             "https://media.istockphoto.com/id/177834117/photo/butter-isolated-on-white.jpg?s=612x612&w=0&k=20&c=wKXNDSvB-tzfT9RPdmKsH2JAGpBv7OISdUmGdegupxg=",
+//         instances: [
+//             {
+//                 description: "BUTTER,WITH SALT",
+//                 NutritionFacts: {
+//                     calories: 717,
+//                     protein: 0.85,
+//                     carbohydrates: 0.06,
+//                 },
+//             },
+//             {
+//                 description: "BUTTER,WHIPPED,WITH SALT",
+//                 NutritionFacts: {
+//                     calories: 717,
+//                     protein: 0.85,
+//                     carbohydrates: 0.06,
+//                 },
+//             },
+//             {
+//                 description: "BUTTER OIL,ANHYDROUS",
+//                 NutritionFacts: {
+//                     calories: 876,
+//                     protein: 0.28,
+//                     carbohydrates: 0,
+//                 },
+//             },
+//         ],
+//         quantity: 1,
+//     },
+//     {
+//         name: "CHEESE",
+//         imageUrl:
+//             "https://t3.ftcdn.net/jpg/05/66/02/98/360_F_566029808_X7praimuCQt0MsLCmw5d65Pp5KqmTS8e.jpg",
+//         instances: [
+//             {
+//                 description: "CHEESE,WITH SALT",
+//                 NutritionFacts: {
+//                     calories: 717,
+//                     protein: 0.85,
+//                     carbohydrates: 0.06,
+//                 },
+//             },
+//             {
+//                 description: "CHEESE,WHIPPED,WITH SALT",
+//                 NutritionFacts: {
+//                     calories: 717,
+//                     protein: 0.85,
+//                     carbohydrates: 0.06,
+//                 },
+//             },
+//             {
+//                 description: "CHEESE OIL,ANHYDROUS",
+//                 NutritionFacts: {
+//                     calories: 876,
+//                     protein: 0.28,
+//                     carbohydrates: 0,
+//                 },
+//             },
+//         ],
+//         quantity: 1,
+//     },
+// ];
 
 const ResultsPage = ({ prompt }: ResultsPageProps) => {
     const [loading, setLoading] = useState<boolean>(false);

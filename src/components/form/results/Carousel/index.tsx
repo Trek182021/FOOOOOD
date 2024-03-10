@@ -59,9 +59,9 @@ const ResultsCarousel = ({ data }: ResultsCarouselProps) => {
                         <CarouselItem key={index}>
                             <div className="p-1">
                                 <Card>
-                                    <CardContent className="flex flex-col aspect-square items-center justify-center p-6">
-                                        <span className="text-4xl font-semibold">
-                                            {index + 1}
+                                    <CardContent className="flex flex-col aspect-square items-center justify-between p-6">
+                                        <span className="text-4xl font-semibold font-nutrition">
+                                            {currentData.name}
                                         </span>
                                         {data && (
                                             <div
