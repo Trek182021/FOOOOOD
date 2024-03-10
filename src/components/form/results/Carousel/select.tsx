@@ -69,11 +69,11 @@ const CarouselSelect = ({
             </Select>
             <div className="font-nutrition">
                 <div>Nutritional Facts:</div>
-                <div>{`Calories: ${_calories}`}</div>
-                <div>{`Protein: ${_protein}`}</div>
-                <div>{`Carbohydrates: ${_carbohydrates}`}</div>
+                <div>{`Calories: ${!_calories ? "0": Math.round(_calories * currentData.quantity)}`}</div>
+                <div>{`Protein: ${!_protein ? "Calories Not Found": Math.round(_protein * currentData.quantity)}`}</div>
+                <div>{`Carbohydrates: ${!_carbohydrates ? "Calories Not Found": Math.round(_carbohydrates * currentData.quantity)}`}</div>
+                <div>Estimated Portion Size: {currentData.quantity * 100}</div>
             </div>
-            <div>Estimated Calories: ${!_calories ? "Calories Not Found": _calories * currentData.quantity}</div>
         </div>
     );
 };
