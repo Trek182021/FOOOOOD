@@ -42,7 +42,7 @@ const CarouselSelect = ({ selectedFood, handleFoodChange, currentData }: Carouse
                     <SelectValue placeholder="Select food" />
                 </SelectTrigger>
                 <SelectContent>
-                    <SelectGroup>
+                    <SelectGroup className="group-test">
                     <SelectLabel className="font-nutrition">Food Options</SelectLabel>
                         {
                             currentData['instances'].map((foodItem) => (

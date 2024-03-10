@@ -19,5 +19,6 @@ export type Food = {
 export type FoodResult = {
     name: string;
     imageUrl: string;
-    instances: Food[]
+    instances: Food[];
+    quantity: number;
 }

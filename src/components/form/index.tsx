@@ -5,6 +5,7 @@ import UploadPage from './upload'
 import { Prompt } from '@/types'
 import ReviewPage from './review'
 import ResultsPage from './results'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -17,21 +18,14 @@ const CalorieTrackerPage = () => {
   })
 
   function goNext() {
-    if (counter + 1 > 2) {
-      return
-    }
     setCounter(counter+1);
   }
   
   function goBack() {
-    if (counter - 1 < 0) {
-      return
-    }
     setCounter(counter-1);
   }
 
   // function updateForm()
-
   async function handleSubmit(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     e.preventDefault();
 
@@ -39,6 +33,8 @@ const CalorieTrackerPage = () => {
       console.log("No File Uploaded")
       return
     }
+
+    goNext();
   }
 
 
@@ -64,8 +60,7 @@ const CalorieTrackerPage = () => {
     <>
         <Navbar isBlack/>
         <section className="flex flex-col items-center">
-           {/* {forms[counter].element} */}
-           <ResultsPage prompt={prompt}/>
+           {forms[counter].element}
         </section>
 
     </>
