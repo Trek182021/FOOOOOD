@@ -68,7 +68,7 @@ const GettingStartedPage = () => {
       </section>
 
       {/* How it works */}
-      <section className="flex flex-col items-center py-10 px-8 gap-8 bg-black text-white">
+      <section className="flex flex-col items-center py-10 px-8 lg:px-48 gap-8 bg-black text-white">
         <h2 className="text-xl">
           How it works
         </h2>
@@ -78,7 +78,7 @@ const GettingStartedPage = () => {
               1
             </div>
             <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Our segmentation algorithm builds upon the Yolov8 architecture, fine-tuned using the comprehensive FoodSeg103 dataset—a recognized benchmark for food-segmentation models.
             </p>
           </div>
           <div className="flex gap-8 min-h-16">
@@ -86,7 +86,7 @@ const GettingStartedPage = () => {
               2
             </div>
             <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+            Upon receiving user-uploaded images, we meticulously extract crucial information such as masks and bounding boxes for each distinct food item. These masks are then applied to the original image, allowing us to isolate and identify individual food pieces
             </p>
           </div>
           <div className="flex gap-8 min-h-16">
@@ -94,7 +94,7 @@ const GettingStartedPage = () => {
               3
             </div>
             <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+            Leveraging the pre-trained model, we predict the specific type of each segmented food item. Subsequently, we cross-reference these predictions with the USDA food nutrition dataset to retrieve detailed nutritional facts for each identified food component. If the food item has variations, we provide the user with a list of options to choose from. (i.e: Salted or Unsalted butter, etc.)
             </p>
           </div>
         </div>
